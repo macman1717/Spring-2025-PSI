@@ -11,7 +11,8 @@ public class InterfaceTester {
         CollegeStudent terranceCopy = terrance;
 
         stanCopy.setMajor("Art");
-        terranceCopy.setMajor("Business");
+        stanCopy.setName("Stan Copy");
+        terranceCopy.setName("Terrance Copy");
 
         ArrayList<CollegeStudent> list = new ArrayList<>();
         list.add(stan);
@@ -20,8 +21,9 @@ public class InterfaceTester {
         list.add(terranceCopy);
 
         for(CollegeStudent student : list){
-            System.out.println(student);
+            System.out.println("Name: " +student.getName() + ", Major: " + student.getMajor());
         }
+
 
         list.add(new CollegeStudent(903212223, "Emma", "3D Modeling", 27));
         list.add(new CollegeStudent(900112233, "Alice", "Computer Science", 20));
@@ -62,7 +64,7 @@ public class InterfaceTester {
         list.add(new CollegeStudent(903212223, "Emma", "3D Modeling", 27));
 
 //        for(CollegeStudent student : list){
-//            System.out.println(student);
+//            System.out.println("Name: " + student.getName() + "\n\t Id Num: " + student.getStuID());
 //        }
     }
 }
