@@ -1,6 +1,6 @@
 package Week_6_Interfaces;
 
-public class CollegeStudent{
+public class CollegeStudent implements Comparable<CollegeStudent>, Cloneable, Athlete{
     private int stuID;
     private String name;
     private String major;
@@ -56,4 +56,29 @@ public class CollegeStudent{
         return sb.toString();
     }
 
+    @Override
+    public int compareTo(CollegeStudent otherStudent) {
+        if(this.stuID > otherStudent.stuID){
+            return -1;
+        }else if(this.stuID < otherStudent.stuID){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    @Override
+    public CollegeStudent clone() {
+        try {
+            CollegeStudent clone = (CollegeStudent) super.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+
+    @Override
+    public void playMatch() {
+        System.out.println("Playing Match");
+    }
 }
