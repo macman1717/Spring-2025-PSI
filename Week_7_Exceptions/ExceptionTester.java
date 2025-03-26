@@ -6,41 +6,24 @@ import java.util.Scanner;
 
 public class ExceptionTester {
     public static void main(String[] args) {
-
         try {
-            int stuID = getStuID();
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter a name: ");
+            String name = input.nextLine();
 
-            System.out.println(stuID);
-            int x = 75/0;
-            System.out.println(x);
-
-            System.out.println("Caught InputMismatchException");
-            System.out.println("Caught ArithmeticException");
-            System.out.println("Goodbye!");
-        }catch (InputMismatchException e){
-            System.out.println("Input MismatchException");
+            if (name.trim().isEmpty()) {
+                throw new BlankNameException("Name cannot be empty");
+            }
+        }catch (BlankNameException e) {
+            System.out.println("Caught BlankNameException");
         }
-        catch (Exception e) {
-            System.out.println("Caught Exception");
+        catch (InputMismatchException e) {
+            System.out.println(e.getMessage());
         }
 
-        finally {
-            System.out.println("Goodbye!");
-        }
 
-        try {
-            File file = new File("text.txt");
-            BufferedReader br = new BufferedReader(new FileReader(file));
 
-        }catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        }
+        System.out.println("Done");
 
-    }
-
-    public static int getStuID() throws FileNotFoundException {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Please enter a student ID: ");
-        return input.nextInt();
     }
 }
