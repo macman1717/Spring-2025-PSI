@@ -49,4 +49,14 @@ public class Student {
     public void setEarnedCredits(int earnedCredits) {
         this.earnedCredits = earnedCredits;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "stuID=" + stuID +
+                ", name='" + name + '\'' +
+                ", major='" + major + '\'' +
+                ", earnedCredits=" + earnedCredits +
+                '}';
+    }
 }
