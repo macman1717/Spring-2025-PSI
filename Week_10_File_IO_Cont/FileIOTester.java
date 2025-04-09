@@ -22,7 +22,7 @@ public class FileIOTester {
                 line += student.getName() + ",";
                 line += student.getMajor() + ",";
                 line += student.getEarnedCredits();
-                System.out.println(line);
+//                System.out.println(line);
                 bufferedWriter.write(line);
                 if(student != students.getLast())
                     bufferedWriter.newLine();
@@ -30,6 +30,19 @@ public class FileIOTester {
         } catch (IOException e) {
             System.out.println("File IO Exception");
         }
+
+        try(
+                BufferedReader br = new BufferedReader(new FileReader(studentFile))
+                ){
+            String line = "900123456,Connor Griffin,Software Development,148";
+            String[] info = line.split(",");
+            System.out.println(info[0]);
+//            while((line = br.readLine()) != null){
+//                System.out.println(line);
+//            }
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
-}
+    }
