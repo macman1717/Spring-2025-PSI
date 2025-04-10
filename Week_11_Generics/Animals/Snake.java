@@ -5,4 +5,5 @@ public abstract class Snake extends Reptile{
         super(name, ageInYears, color, isVenomous);
     }
 
+    public abstract String playWithOwner();
 }

@@ -1,6 +1,6 @@
 package Week_11_Generics.Animals;
 
-public class Dog extends Mammal implements Pet {
+public class Dog extends Mammal{
     private boolean isPet;
 
     public Dog(String name, int ageInYears, String color, boolean isPet) {
@@ -27,10 +27,5 @@ public class Dog extends Mammal implements Pet {
 
     public void setPet(boolean pet) {
         isPet = pet;
-    }
-
-    @Override
-    public String playWithOwner() {
-        return "I'm playing fetch.";
     }
 }

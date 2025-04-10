@@ -1,7 +1,7 @@
 package Week_11_Generics.Animals;
 
 
-public class Frog extends Amphibian implements Pet{
+public class Frog extends Amphibian{
     public Frog(String name, int ageInYears, String color) {
         super(name, ageInYears, color);
     }
@@ -11,8 +11,4 @@ public class Frog extends Amphibian implements Pet{
         System.out.println("Ribbet");
     }
 
-    @Override
-    public String playWithOwner() {
-        return "I'm eating flies.";
-    }
 }

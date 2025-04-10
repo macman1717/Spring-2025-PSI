@@ -1,7 +1,7 @@
 package Week_11_Generics.Animals;
 
 
-public class BallPython extends Snake implements Pet{
+public class BallPython extends Snake {
     public BallPython(String name, int ageInYears, String color, boolean isVenomous) {
         super(name, ageInYears, color, isVenomous);
     }

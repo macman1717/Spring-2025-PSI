@@ -6,6 +6,11 @@ public class Copperhead extends Snake{
     }
 
     @Override
+    public String playWithOwner() {
+        return "";
+    }
+
+    @Override
     public void makeNoise() {
         System.out.println("HHHSSSsssss");
     }
