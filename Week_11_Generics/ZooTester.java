@@ -29,14 +29,35 @@ public class ZooTester {
         listOfAmplibians.add(new Frog("Katherine",5,"Red"));
 
         playWithAnimals(zoo);
-//        playWithAnimals(kennel);
+        System.out.println();
+        playWithAnimals(kennel);
+
+        ArrayList<Object> objects = new ArrayList<>();
+        objects.add(new Object());
+        objects.add(new Object());
+        objects.add(new Object());
+
+        playWithObjects(listOfSnakes);
+//        playWithObjects(kennel);
+        playWithObjects(objects);
+
 //        playWithAnimals(listOfSnakes);
 //        playWithAnimals(listOfAmplibians);
     }
 
-    private static void playWithAnimals(ArrayList<Animal> listOfAnimals){
-        for(Animal animal : listOfAnimals){
-            System.out.println("Playing with " + animal.getName());
+    private static <Y extends Animal> void playWithAnimals(ArrayList<Y> list){
+        for(Y object : list){
+            System.out.println("Playing with " + object.getName());
+        }
+    }
+
+    private static void playWithObjects(ArrayList<? super Snake> list){
+        for(Object object : list){
+            if(object instanceof Reptile){
+                ((Reptile) object).makeNoise();
+            }else{
+                System.out.println("Oops");
+            }
         }
     }
 
