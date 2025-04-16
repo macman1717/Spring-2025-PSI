@@ -1,0 +1,17 @@
+package Week_12_Generic_Classes.Animals;
+
+public class Copperhead extends Snake {
+    public Copperhead(String name, int ageInYears, String color, boolean isVenomous) {
+        super(name, ageInYears, color, isVenomous);
+    }
+
+    @Override
+    public String playWithOwner() {
+        return "";
+    }
+
+    @Override
+    public void makeNoise() {
+        System.out.println("HHHSSSsssss");
+    }
+}
