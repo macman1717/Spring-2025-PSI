@@ -12,5 +12,11 @@ public class Week12Tester {
         Frog frog = new Frog("Bob",5,"green");
         Salamander salamander = new Salamander("Alice",7,"purple");
         Frog frog2 = new Frog("Katherine",5,"Red");
+
+        Box<Animal> box = new Box<>();
+        box.setItem(frog);
+
+        System.out.println(box.getItem().getName());
+
     }
 }
