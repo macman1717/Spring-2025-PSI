@@ -1,0 +1,3 @@
+Connor Griffin, 900123456, 26, Software-Dev
+Katherine Supic, 900654321, 22, Psychology
+Billy Bob, 900121212, 19, Business Admin
