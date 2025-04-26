@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CollegeStudentTester {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         //Read students.txt into array list of strings
         ArrayList<String> students = new ArrayList<String>();
         try(BufferedReader br = new BufferedReader(new  FileReader("Week_13_Final_Review/students.txt"))){
@@ -32,8 +32,13 @@ public class CollegeStudentTester {
             int age = Integer.parseInt(studentArray[2].trim());
             String name = studentArray[0].trim();
             String major = studentArray[3].trim();
-            CollegeStudent collegeStudent = new CollegeStudent(studentID, name, major, age);
-            collegeStudents.add(collegeStudent);
+            //exception handling for the new custom exception
+            try {
+                CollegeStudent collegeStudent = new CollegeStudent(studentID, name, major, age);
+                collegeStudents.add(collegeStudent);
+            }catch (InvalidStudentException ex){
+                System.out.println(ex.getMessage());
+            }
         }
         for(CollegeStudent collegeStudent : collegeStudents){
             System.out.println(collegeStudent);
@@ -47,8 +52,31 @@ public class CollegeStudentTester {
 
         //implement cloneable and use clone to create and add another student to the list
 
+        CollegeStudent john = collegeStudents.get(0).clone();
+        System.out.println("\nCloneable Stuff");
+        System.out.println(john);
+        System.out.println(collegeStudents.get(0));
+        john.setName("John Doe");
+        john.setMajor("Art");
+        john.setAgeInYears(88);
+        john.setStuID(900999888);
+        collegeStudents.add(john);
+
+        System.out.println(john);
+        System.out.println(collegeStudents.get(0));
 
         //implement comparable and sort the list
+
+        System.out.println("\nComparable");
+        System.out.println("Before sorting: ");
+        for(CollegeStudent collegeStudent : collegeStudents){
+            System.out.println(collegeStudent.getName());
+        }
+        Collections.sort(collegeStudents);
+        System.out.println("\nAfter sorting: ");
+        for(CollegeStudent collegeStudent : collegeStudents){
+            System.out.println(collegeStudent.getName());
+        }
 
 
     }

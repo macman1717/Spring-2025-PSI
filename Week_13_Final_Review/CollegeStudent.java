@@ -1,12 +1,19 @@
 package Week_13_Final_Review;
 
-public class CollegeStudent{
+public class CollegeStudent implements Comparable<CollegeStudent>, Cloneable {
     private int stuID;
     private String name;
     private String major;
     private int ageInYears;
 
-    public CollegeStudent(int stuID, String name, String major, int ageInYears) {
+    public CollegeStudent(int stuID, String name, String major, int ageInYears) throws InvalidStudentException {
+        //Invalid Student Exception Logic
+        if(ageInYears < 0 || ageInYears > 120){
+            throw new InvalidStudentException("Age must be between 0 and 120");
+        }
+        if(stuID < 900000000 || stuID > 999999999){
+            throw new InvalidStudentException("Student ID must be between 900000000 and 999999999");
+        }
         this.stuID = stuID;
         this.name = name;
         this.major = major;
@@ -56,5 +63,14 @@ public class CollegeStudent{
         return sb.toString();
     }
 
+    @Override
+    public CollegeStudent clone() throws CloneNotSupportedException {
+        return (CollegeStudent) super.clone();
+    }
+
+    @Override
+    public int compareTo(CollegeStudent o) {
+        return this.name.toLowerCase().compareTo(o.name.toLowerCase());
+    }
 
 }
